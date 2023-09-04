@@ -27,7 +27,7 @@
                         array(
                             'response_code' => 200,
                             'message' => 'Success',
-                            'data' => "insert into cart(kode_barang,nama_barang,stok,harga,photo, keterangan, id_kategori, id_koperasi, session_id)values('".$data['kode_barang']."','".$data['nama_barang']."','".$data['stok']."','".$data['harga']."','".$data['photo']."','".$cleartag."','".$data['id_kategori']."','".$data['id_koperasi']."','".$sesionid."')"
+                            'data' => $rr
                         )
                     );
                 }
