@@ -34,7 +34,8 @@
                   echo json_encode(
                     array(
                         'response_code' => 200,
-                        'message' => 'Berhasil Move Data!'
+                        'message' => 'Berhasil Move Data!',
+                        "data" => $cartContent
                     )
                     );
 
