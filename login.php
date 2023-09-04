@@ -29,7 +29,7 @@
                             'response_code' => 200,
                             'message' => 'Gagal Generate Token'
                         )
-                    );
+                    ); 
                 }
             }else{
                 echo json_encode(
