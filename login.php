@@ -13,14 +13,14 @@
                 $rows = mysqli_fetch_assoc($user);
                 $bytes = random_bytes(60);
                 $session = bin2hex($bytes);
-                $update = mysqli_query($koneksi,"update pengguna set token = '".$session."' where username = '".$row['username']."'");
+                $update = mysqli_query($koneksi,"update pengguna set token = '".$session."' where username = '".$rows['username']."'");
                 if($update){
-
+                    $user_update = mysqli_fetch_assoc(mysqli_query($koneksi,"select * from pengguna where username = '".$data['username']."' and password = '".md5($data['password'])."'"));
                     echo json_encode(
                         array(
                             'response_code' => 200,
                             'message' => 'Login Berhasil',
-                            'data' => $rows
+                            'data' => $user_update
                         )
                     );
                 }else{
