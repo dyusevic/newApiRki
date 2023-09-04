@@ -27,15 +27,16 @@
                   
                     $jml     = count($cartContent);
                 
+                    $cek = "";
                   for ($i = 0; $i < $jml; $i++) {
-                    mysqli_query($koneksi,"insert into pemesanan(kode_barang,nama_barang,stok,harga,photo, keterangan, id_kategori, id_koperasi, id_user, session_id)values('".$cartContent[$i]['kode_barang']."','".$cartContent[$i]['nama_barang']."','".$cartContent[$i]['stok']."','".$cartContent[$i]['harga']."','".$cartContent[$i]['photo']."','".$cartContent[$i]['keterangan']."','".$cartContent[$i]['id_kategori']."','".$cartContent[$i]['id_koperasi']."','".$dd['id']."','".$sid."')");
+                    $cek .= "insert into pemesanan(kode_barang,nama_barang,stok,harga,photo, keterangan, id_kategori, id_koperasi, id_user, session_id)values('".$cartContent[$i]['kode_barang']."','".$cartContent[$i]['nama_barang']."','".$cartContent[$i]['stok']."','".$cartContent[$i]['harga']."','".$cartContent[$i]['photo']."','".$cartContent[$i]['keterangan']."','".$cartContent[$i]['id_kategori']."','".$cartContent[$i]['id_koperasi']."','".$dd['id']."','".$sid."')";
                   }
 
                   echo json_encode(
                     array(
                         'response_code' => 200,
                         'message' => 'Berhasil Move Data!',
-                        "data" => $cartContent
+                        "data" => $cek
                     )
                     );
 
