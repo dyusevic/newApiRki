@@ -11,7 +11,8 @@
             $user = mysqli_query($koneksi,"select * from pengguna where username = '".$data['username']."' and password = '".md5($data['password'])."'");
             if(mysqli_num_rows($user) > 0 ){
                 $rows = mysqli_fetch_assoc($user);
-                $bytes = random_bytes(60);
+                //$bytes = random_bytes(60);
+                $bytes = date("Ymdhis");
                 $session = bin2hex($bytes);
                 $update = mysqli_query($koneksi,"update pengguna set token = '".$session."' where username = '".$rows['username']."'");
                 if($update){
